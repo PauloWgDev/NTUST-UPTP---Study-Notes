@@ -38,13 +38,13 @@ PCB contain the following information about processes:
 
 - **Process State**
 - **Program Counter**: The counter indicates the address of the next instruction to be executed for this process
-- CPU registers
-- CPU-scheduling information: this includes a process priority, pointers to scheduling queues and any other scheduling parameter.
-- Memory-management information: This information may include such
+- **CPU registers**
+- **CPU-scheduling information**: this includes a process priority, pointers to scheduling queues and any other scheduling parameter.
+- **Memory-management information**: This information may include such
 items as the value of the base and limit registers and the page tables, or the
 segment tables, depending on the memory system used
-- Accounting information. This information includes the amount of CPU and real time used, time limits, account numbers, job or process numbers, and so on.
--  I/O status information. This information includes the list of I/O devices allocated to the process, a list of open files, and so on
+- **Accounting information**: This information includes the amount of CPU and real time used, time limits, account numbers, job or process numbers, and so on.
+- ** I/O status information**: This information includes the list of I/O devices allocated to the process, a list of open files, and so on
 
 ![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/6b55d62f-9a4d-4b72-8907-dcb8e25a5e79)
 
