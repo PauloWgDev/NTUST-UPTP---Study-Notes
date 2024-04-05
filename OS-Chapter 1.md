@@ -39,7 +39,7 @@ In summary, for our purposes, the operating system includes the always running k
 
 ## Computer-System Organization
 
-![[Pasted image 20240404210350.png]]
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/d8630df7-02d0-415b-8db4-4d1358fe339a)
 
 
 ### Interrupts
@@ -47,7 +47,8 @@ In summary, for our purposes, the operating system includes the always running k
 Let's consider a typical computer operation, for example a program performing I/O. To start a I/O operation, the device driver loads the appropriate registers in the device controller. The device controller, in turn, examines the contents of these registers to determine what action to take (such as reading a character from the keyboard). The controller starts the transfer of data from the device to its local buffer. Once the transfer of data is complete, the device controller informs the device driver that is has finished its operation. 
 But how des the controller informs the device driver that is has finish its operation? This is accomplished via an **interrupt**.
 
-![[Pasted image 20240404213002.png]]
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/6be4a5dd-339b-45e3-ba61-5cd4e5daac14)
+
 
 When the CPU is interrupted, it stops what it is doing and immediately transfers execution to a fixed location. The fixed location usually contains the starting address where the service routine for the interrupt is located. The interrupt service routine executes; on completion, the CPU resumes the interrupted computation.
 
@@ -61,7 +62,8 @@ The basic interrupt mechanism works as follows. The CPU hardware has a wire call
 
 We say that the device controller raises an interrupt by asserting a signal on the interrupt request line, the CPU catches the interrupt and dispatches it to the interrupt handler, and the handler clears the interrupt by servicing the device.
 
-![[Pasted image 20240404214823.png]]
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/5c9457aa-e542-4479-91f1-2ea72c51297b)
+
 
 
 **In summary, interrupts are used throughout modern operating systems to handle asynchronous events. Device controllers and hardware faults raise interrupts. To enable the most urgent work to be done first, modern computers use a system of interrupt priorities. Because interrupts are used so heavily for time-sensitivity processing, efficient interrupt handling is required for good system performance.**
@@ -84,7 +86,8 @@ The most common secondary-storage devices are hard-disk drives (HDDs) and nonvol
 
 ##### Storage Device Hierarchy:
 
-![[Pasted image 20240404221344.png]]
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/5ac1f7a7-5703-44c7-9c88-c56164714806)
+
 
 The top four levels of memory in the figure are constructed using semi-conductor memory. 
 
@@ -118,11 +121,13 @@ The benefit of this model is that many processes can run simultaneously (N proce
 
 The definition of multiprocessor includes multicore systems. In which multiple computing cores reside on a single chip.
 
-![[Pasted image 20240405081839.png]]
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/c5156e4b-4f22-4ce4-9d7f-c73e40d9b38b)
+
 
 
 Additional CPUs to a multiprocessor system will increase computing power; however, the concept does not scale very well, and once we add too many CPUs, contention for the system bus becomes a bottleneck and performance begins to degrade. An alternative approach in instead to provide each CPU with its own local memory that is accessed via a small, fast local bus. The CPUs are connected by a shared system interconnect, so that all CPUs share one physical address space. This approach is known as **non-uniform memory access (NUMA)** 
-![[Pasted image 20240405082114.png]]
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/01712006-b936-4b45-a623-aa929ebac6c2)
+
 
 The advantage is that, when a CPU accesses its local memory, not only is it fast, but there is also no contention over the system interconnect. Thus, NUMA systems can scale more effectively as more processors are added.
 A potential drawback with a NUMA system is increased latency when a CPU must access remote memory across the system interconnect, creating a possible performance penalty. In other words, for example, CPU0 cannot access the local memory of CPU3 as quickly as it can access its own local memory, slowing down performance.
@@ -142,7 +147,8 @@ Clustering can be structured asymmetrically or symmetrically. In asymmetric clus
 
 Clusters can also be used to provide high performance computing environments. Such systems can supply significantly greater computational power than single-processor or even SMP systems because they can run an application concurrently on all computers in the cluster. The application must have been written specifically to take advantage of the cluster, however. This involves a technique known as parallelization.
 
-![[Pasted image 20240405083314.png]]
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/75aedcc2-cd08-4d45-96d8-63f3463d6029)
+
 
 
 storage-area networks (SANs): allow many systems to attach to a pool of storage. If the applications and their data are stored on the SAN, then the cluster software can assign the application to run on any host that is attached to the SAN.
@@ -170,7 +176,8 @@ To ensure the proper execution of the system, we must be able to distinguish bet
 
 At the very least we need two separete modes of operation, user mode and kernel mode (also called supervisor mode or privileged mode). A bit called mode bit indicates the current mode: kernel (0), user (1). With the mode bit, we can distinguish between a task that is executed on behalf of the operating system and one that is executed on behalf of the user.
 
-![[Pasted image 20240405092448.png]]
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/602052f8-8a3d-4ef3-a6a2-a296960f79c4)
+
 
 
 ### Timer
@@ -263,7 +270,8 @@ Virtualization allows operating systems to run as applications within other oper
 
 Virtualization software are emulations. Emulation involves simulating computer hardware in software.
 
-![[Pasted image 20240405104834.png]]
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/4d15b62e-2ade-497f-9bf9-913219f0594f)
+
 
 
 ## Distributed Systems
@@ -282,10 +290,8 @@ A distributed operating system provides a less autonomous environment. The diffe
 - Hash functions: takes data as input, performs a numeric operation on the data, and returns a numeric value.
 - Bitmaps: a string of n binary digits that can be used to represent the status of n items.
 
-![[Pasted image 20240405105903.png]]
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/40cf1375-d2ee-4aca-aaea-cf610289efe5)
 
-
-![[Pasted image 20240405105839.png]]
 
 
 ## Computing Environments
@@ -304,7 +310,8 @@ Contemporary network architecture features arrangements in which sever systems s
 - The **compute server system** provides an interface to which a client can send a request to perform an action. In response the server executes the action and sends the results to the client.
 - The file-server system provides a file-system interface where clients can create, update, read and delete files.
 
-![[Pasted image 20240405110722.png]]
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/74da3183-73ac-4db1-aa6e-9de8648cefb4)
+
 
 
 ### Peer to Peer Computing
@@ -316,7 +323,8 @@ Determining what services are available is accomplished in one of two general wa
 - When a node joins a network, it registers its service with a centralized lookup service on the network. Any node desiring a specific service first contacts this centralized lookup service to determine which node provides the service. The remainder of the communication takes place between the client and the service provider.
 - An alternative scheme uses no centralized lookup service. Instead, a peer acting as a client must discover what node provides a desired service by broadcasting a request for the service to all other nodes in the network
 
-![[Pasted image 20240405131851.png]]
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/5515983c-a806-436d-9040-69512cdc7845)
+
 
 
 ### Cloud Computing
@@ -331,7 +339,8 @@ Types of cloud computing:
 - Software as a Service (SaaS): one or more applications available via the internet. (ex: google spreadsheets)
 - Platform as a Service (PaaS): a software stack ready for application use via the internet.
 - Infrastructure as a service (IaaS): servers or storage available over the Internet (ex: storage available for making backup copies).
-![[Pasted image 20240405132326.png]]
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/f1bf183c-ca8f-40bc-b2c8-9e5e393cba48)
+
 
 
 ### Real-Time Embedded Systems
