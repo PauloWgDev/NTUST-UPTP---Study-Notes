@@ -132,7 +132,29 @@ From most to least important:
 
 If a system resource must be reclaimed, it will begin terminating a empty process and if necessary will procede with a background process and so on.
 
-###
+## Interprocess Communication
+
+A process is independent if it does not share data with any other process executing in the system. A process is cooperating if it can affect or be affected by the other processes executing in the system.
+There are several reasons for providing an environment that allows process cooperation:
+- Information Sharing: Application may be interested in the same piece of information, we must provide an environment to allow concurrent access to such information.
+- Computation Speed: If we want a particular task to run faster, we must break it into substasks.
+- Modularity: We may want to construct the system in a modular fashion, dividing the system function into separate process or threads.
+
+Cooperating process requires and interprocess communication (IPC) mechanism. 
+There are two fundamental models of interprocess communication: shared memory and message passing. In the shared memory model, a region of memory that is shared by the cooperating processes is established. In the message-passing model, communication takes place by means of messages exchanged between the cooperating processes.
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/9ea1def5-3132-45f3-959c-c2bb975a2f90)
+
+## IPC in Shared-Memory Systems
+
+Normally, the operating system tries to preven one process from acessing another process's memory. Shared memory requires that two or more processes agree to remove this restriction.
+
+A producer process produces information that is consumed by the consumer process.
+For example a compiler produces assembly code that is consumed by an assembler.
+
+To allow producer and consumer processes to run concurrently, we must have available a buffer of items that can be filled by the producer and emptied by the consumer. Two typer of buffer can be used. 
+- **UNbounded Buffer**: places no practical limit on the size of the buffer
+- **Bounded Buffer**: Assumes a fixed buffer size. In this case the consumer must wait if the buffer is empty and the producer must wait if the buffer is full.
 
 
 
