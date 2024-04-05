@@ -44,9 +44,32 @@ For example, lets say you have an array of size N and you want to calculate the 
 
 **In summary, data parallelism involves the distribution of data across multiple cores, and tasks parallelism involves the distribution of tasks across multiple cores.**
 
+## Multithreading Models
+
+A relationship must exist among a user thread and a kernel thread, there are different approaches for creating this relationship:
+
+### Many to One Model
+Many user threads to one kernel thread. In this model the entire process will block if a thread makes a blocking system call. Also, because only one thread can access the kernel at a time, multiple threads are unable to run in parallel on multicore systems.
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/6342740d-2822-4f46-8d06-03dd260bf827)
+
+### One to One Model
+This model maps each user thread to a kernel thread. It provides more concurrency and allows another thread to run when a thread makes a blocking system call. It also allows threads to run in parallel in multiprocessor systems. The only drawback is that creating a user thread requires also creating a kernel thread, and a large number of kernel threads may burden the perfornmance of the system.
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/0acfd9c1-f4c3-4c26-a764-338fc6804795)
 
 
+### Many to Many
 
+Multiplexes many user-level threads to aa smaller or equal number of kernel threads. The many to one model allows the developer to create as many user threads as he wishes, it does not result in parallelism, because the kernel can schedule only one kernel thread at a time. So the one to one model provides more concurrency.
+
+Also, when a thread performs a blocking system call, the  kernel can schedule another thread for execution. 
+
+One variation still multiplexes many user threads to a smaller or equeal number of kernel threads but also allows a user level thread to be bounded to a kernel thread. This variation is sometimes referred to as the two-level model. 
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/c9cd6e71-d550-4fae-9955-37b9e093aee7)
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/4f1633a3-f3d4-4bf0-826f-877a9494cb01)
 
 
 
