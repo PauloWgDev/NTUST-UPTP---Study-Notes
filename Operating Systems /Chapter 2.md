@@ -89,7 +89,50 @@ When an interrupt occurs, the system needs to save the current context of the pr
 
 ### Process Creation
 
+During the course of execution, a process may create several new process. The creating process is called a parent process, and the new processes are called the children of that process. Each of these new processes may in turn create other process, forming a tree of processes.
+
+Most operating systems indentify processes according to a unique process indetifie (pid) wich is tipically an int.
+
+When a process creates a new process, two possiblities for execution exist:
+- The parent continues to execute concurrently with its children.
+- The parent waits until some or all of its children have terminated.
+
+There are also two address-space possibilities for the new process:
+- The child process is a duplicate of the parent process (has the same program and data as the parent)
+- The child process has a new program loaded into it.
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/df6679fe-7a2c-41a3-9c6a-e9221c866e81)
+
+
 ### Process Termination
+
+A process terminates when it finishes executing and asks the operating system to delete it by using the exit() system call. At that point, the process may return a status value to its waiting parent.
+
+A parent may terminate the execution of one of its children for a variety of reasons such as:
+- The child has exceeded its usage of some of the resources that it has been allocated
+- The task assigned to the child is no longer required.
+- The parent is exiting, and the operating system does not allow a child to continue if its parent terminates.
+
+Some systems do not allow a child to exist if its parent has terminated. 
+In such systems, if a process terminates, then all its children must also be terminated. This phenomenon, refered to as cascading termination.
+
+Whenever a process terminates, its resources are deallocated by the operating system. However, its entry in the process table must remain there until the parent calls wait(). A process that has terminated, but whose parent has not yet called wait(), is known as a zombie process.
+
+If a parent did not invoke wait() and instead terminated, its children woudl be orphans processes. 
+
+#### Android Process Hirearchy
+
+Because of resource constraints, mobile operating systems may have to terminate existing process to reclaim limited system resources. Rather than terminating an arbitrary process, Android has indentified an importance hierarchy of process. 
+From most to least important: 
+- Foreground Process: The current process visible on the screen.
+- Visible Process: A process that is not directly visible on the foreground but that is performing an activity that the foreground is referring to.
+- Service Process: A process similar to a background process but its performing activity is apparent to the user (such a streaming music)
+- Background Process: A process that may be performing an activity but is not apparent to the user.
+- Empty Process: a process that holds no active components associated with any application
+
+If a system resource must be reclaimed, it will begin terminating a empty process and if necessary will procede with a background process and so on.
+
+###
 
 
 
