@@ -17,7 +17,7 @@ A computer system can be divided roughly into four components:
 
 ## User View
 
-![[Pasted image 20240404201827.png]]
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/ecd4e577-c3aa-4dd3-9eb0-715ea0a6c4e7)
 
 
 ## Systems View
