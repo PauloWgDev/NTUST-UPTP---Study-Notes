@@ -35,7 +35,14 @@ Amdahl's law is a formula that identifies potential performance gains from addin
 
 ![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/9da6de8a-ad33-49c8-8efe-666b3abdcdfb)
 
+### Types of Parallelism 
 
+**Data Parallelism** focuses on distributing subsets of the same data across multiple computing cores and performing the same operation on each core.
+For example, lets say you have an array of size N and you want to calculate the sum of all its elements, with data parallelism you would use one core to calculate the sum of all the elements from elemnt [0] to element [N/2 - 1], and in the second core you would calculate the sum of all the elements from [N/2] to [N - 1].
+
+**Task Parallelism** involves distributing not data but tasks (threads) accross multiple computing cores. Each thread is performing a unique operation. Different threads may operate on the same data or may operate on different data.
+
+**In summary, data parallelism involves the distribution of data across multiple cores, and tasks parallelism involves the distribution of tasks across multiple cores.**
 
 
 
