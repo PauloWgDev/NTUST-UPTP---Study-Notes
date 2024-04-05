@@ -215,6 +215,40 @@ do the following:
 
 ### Synchronization
 
+Communication between processes takes place through calls to send() and
+receive() primitives.
+Message passing may be either blocking or nonblocking—
+also known as synchronous and asynchronous.
+
+- **Blocking send.** The sending process is blocked until the message is
+received by the receiving process
+- **Nonblocking send.** The sending process sends the message and resumes
+operation
+- **Blocking receive.** The receiver blocks until a message is available
+- **Nonblocking receive.** The receiver retrieves either a valid message or a
+null.
+
+### Buffering
+Whether communication is direct or indirect, messages exchanged by communicating processes reside in a temporary queue.
+
+Ways to implement the Queues:
+
+- **Zero capacity.** The queue has a maximum length of zero; thus, the link
+cannot have any messages waiting in it.
+- **Bounded capacity.** The queue has finite length n.
+- **Unbounded capacity.** The queue’s length is potentially infinite
+
+## Communication in Client - Server Systems
+
+### Sockets
+
+A socket is defined as an endpoint for communication. 
+A socket is identified by an IP address concatenated with a port number. In general, sockets use a client-server architecture. The server waits for incoming client request by listening to a specific port. 
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/1e6167ec-8910-42d5-83ec-c5c644f2adc0)
+
+The IP address 127.0.0.1 is a special IP address known as the
+loopback. When a computer refers to IP address 127.0.0.1, it is referring to itself
 
 
 
