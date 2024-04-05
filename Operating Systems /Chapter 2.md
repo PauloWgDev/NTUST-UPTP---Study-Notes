@@ -156,11 +156,18 @@ To allow producer and consumer processes to run concurrently, we must have avail
 - **UNbounded Buffer**: places no practical limit on the size of the buffer
 - **Bounded Buffer**: Assumes a fixed buffer size. In this case the consumer must wait if the buffer is empty and the producer must wait if the buffer is full.
 
+## IPC in Message-Passing Systems
 
+Message-Passing provides a mechanism to allow processes to communicate and to synchronize their actions without sharing the same address space. IT is particularly useful in a distributed environment, where the communicating processes may reside on different computers connected by a network.
 
+If process P and Q want to communicate, they must send message to and revieve messages from each other, a **communication link** must k must exist between
+them.
 
-
-
+Here are several methods for logically implementing a link
+and the send()/receive() operations:
+• Direct or indirect communication
+• Synchronous or asynchronous communication
+• Automatic or explicit buffering
 
 
 
