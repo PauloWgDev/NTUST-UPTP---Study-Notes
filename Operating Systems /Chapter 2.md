@@ -1,6 +1,9 @@
-![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/99c66e89-ed19-4fa5-abf8-42e1e2ca8948)# Processes
+# Processes
 
 A process is a program in execution. And it is the unit of work of modern computing systems.
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/99c66e89-ed19-4fa5-abf8-42e1e2ca8948)
+
 
 ## Process Concept
 
