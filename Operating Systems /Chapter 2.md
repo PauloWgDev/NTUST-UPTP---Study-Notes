@@ -165,9 +165,56 @@ them.
 
 Here are several methods for logically implementing a link
 and the send()/receive() operations:
-• Direct or indirect communication
-• Synchronous or asynchronous communication
-• Automatic or explicit buffering
+- Direct or indirect communication
+- Synchronous or asynchronous communication
+- Automatic or explicit buffering
+
+### Naming
+Processes that want to communicate must have a way to refer to each other
+
+Under direct communication, each process that wants to communicate
+must explicitly name the recipient or sender of the communication
+
+- send(P, message)—Send a message to process P.
+- receive(Q, message)—Receive a message from process Q
+
+A communication link in this scheme has the following properties:
+
+- A link is established automatically between every pair of processes that
+want to communicate. The processes need to know only each other’s
+identity to communicate.
+-  A link is associated with exactly two processes
+-  Between each pair of processes, there exists exactly one link
+
+This scheme exhibits symmetry in addressing; that is, both the sender process and the receiver process must name the other to communicate. A variant
+of this scheme employs asymmetry in addressing. Here, only the sender names
+the recipient.
+
+- send(P, message)—Send a message to process P.
+- receive(id, message)—Receive a message from any process. The variable id is set to the name of the process with which communication has taken place.
+
+With indirect communication, the messages are sent to and received from
+mailboxes, or ports
+
+-  send(A, message)—Send a message to mailbox A.
+-  receive(A, message)—Receive a message from mailbox A.
+
+In this scheme, a communication link has the following properties:
+- A link is established between a pair of processes only if both members of
+the pair have a shared mailbox
+- A link may be associated with more than two processes.
+- Between each pair of communicating processes, a number of different links
+may exist, with each link corresponding to one mailbox
+
+In contrast, a mailbox that is owned by the operating system has an existence of its own. It is independent and is not attached to any particular process.
+The operating system then must provide a mechanism that allows a process to
+do the following:
+- Create a new mailbox
+- Send and receive messages through the mailbox
+- Delete a mailbox
+
+### Synchronization
+
 
 
 
