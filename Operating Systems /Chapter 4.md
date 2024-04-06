@@ -72,4 +72,21 @@ One variation still multiplexes many user threads to a smaller or equeal number 
 ![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/4f1633a3-f3d4-4bf0-826f-877a9494cb01)
 
 
+## Thread Libraries
 
+A thread library provides the programmer with an API for creating and managing threads.
+
+There are two approaches for implementing a thread library:
+- First approach is to provide a library entirely in user space with no kernel support.
+- Second approach is to implement a kernle-level library supported directly by the operating system.
+
+Three main Librarires are use today: 
+- **POSIX Pthreads**: may be provided as user-level or kernel-level library
+- **Windows**: is a kernel-level library available on windows
+- **Java**: because in most instances the JVM is running on top of a host operating system, the Java thread API is generally implemented using a thread library available on the host system.
+
+**Two general Strategies for creating Threads:**
+- **Asynchronous threading: ** Once the parent creates a child thread, the parent resumes its execution, so te parent and child execute concurrently and independently of one another.
+- **Synchronous threading: ** the parent thread creates one or more children and must wait for all of its children to terminate before it resumes.
+
+- 
