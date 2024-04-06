@@ -163,6 +163,51 @@ The number of threads in the pool can be set based on factors such as the number
 - Thread can by terminated using asynchronous or deferred cancelation. Asynchronous cancellation stops a thread immediately, even if it is in the middle of performing an update. Deferred cancellation informs a thread that it should terminate but allows the thread to terminate in a orderly fashion.
 - Unlike many other operating systems, the Linux system does not distinguish between process and threads; insted it refers to each as task.
 
+---
+
+# Extra
+
+
+## Process vs Thread
+
+### Program
+A program is the executable file that containts the instruction that are store in the disk.
+
+
+### Process
+A process include the resouces a program needs to run
+
+It includes:
+- Processor Register
+- Program Counters
+- Stack Pointers
+- Memory pages
+
+Each process has its own memory address space, one process cannot corrupt the memory address space of another process.
+This means that when one process malfuncitons other process can keep running.
+
+### Thread
+
+A thread is the unit of execution wihtin the process. 
+A process usually has a main thread and then other subthreads.
+
+Each Thread has its own:
+- Stack
+- Registers
+- Program counters
+
+Threads usually hace a shared memory address space.
+
+However one corrupted thread could corrupt the entire system.
+
+**Context Switch:**
+
+During a context switch, one process is switch out of the CPU so another can run.
+The OS stores the state of the thread so it can then resume its execution. 
+
+Context Switching is expensive. 
+
+Is usually cheaper to switch threads than to switch processes.
 
 
 
