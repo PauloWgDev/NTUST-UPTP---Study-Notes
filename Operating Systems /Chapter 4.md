@@ -122,3 +122,50 @@ void *runner(void *param)
 }
 
 ```
+
+## Implicit Threading
+
+One way to address the difficulties of and better support the design of concurrent and parallel application is to transfer the creation and management of threading from application developers to compilers and run-time libraries. This strategy is called **implicit threading**.
+
+
+### Thread Pools
+
+Although creating a separeate thread is more efficient that createing a separate process, a multithreaded system still has problems. One is the time it takes to create a thread along with the fact that once this thread is completed it will be discarted. The second problem is more serious, and is that if we are not keeping track of the amount of threads currently active in the system, Unlimited threads could exhaust the system resources. One solution to this problems is to use a **thread pool.**
+
+The **general idea** behind a thread pool is to create a number of threads at start-up and place them into a pool, where they sit and wait to be assigned a task. When a the system recieves a request, instead of creating a thread from scratch, it will simply submit the requesto to the thread pool and if a thread is available it will use it. If there is no thread available, the task is queued until one becomes free.
+
+**Thread Pool Benefits:**
+
+- Using an existing thread is often faster than waiting to create a thread.
+- A thread pool limits the number of existing threads at any point.
+- Separating the task to be performed from the mechanism of creating the task allows us to use different strategies for running thr task. For example, the task could be scheduled to execute after a time delay.
+
+The number of threads in the pool can be set based on factors such as the number of CPUs in the system, the amount of physical memory, and the expected number of concurrent client requests.
+
+### Fork Join
+
+**Fork Join**: the parent thread creates (forks) one or more child threads and then waits for the children to terminate and **join** with it.
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/ffd9a3e6-80e8-48c0-8c29-703a7d7537ba)
+
+## Summary
+
+// to do: search for a video that clearly explains the difference between a thread and a process
+
+- A thread represents a basic unit of CPU utilization, and threads belonging to the same process share many of the process resources, including code and data.
+- Primary benefits of multihreaded applications are: (1) respoonsiveness, (2) resource sharing, (3) economy, and (4) scalability.
+- Concurrency exists when multiple threads are making progress, whereas parallelism exists when multiple threads are making progress simultaneously. A single core system is capable of concurrency, but for parallelism a multicore system is required.
+- Challenges in designing multithreaded applications include: divinding and balancing the work, divinding the data between different threads, identifying any data dependencies and testing and debugging.
+- Data parallelism distributes subsets of the same data across multiple cores and performs the same operation in those cores. Task parallelism distributes the task across multiple cores, this tasks could be using a shared memory.
+- User applications create user-level threads that must ultimately be mapped to kernel threads to execute on a CPU.
+- A thread library provides an API for creating and managing threads. Three common thread librarries include Windows, Pthreads and Java threading.
+- Implicit threading involves identifying tasks (not threads) and allowing langugage or API frameworks to create and amange threads. Essentially freeing applications developers from the duty of implementing a multithread system.
+- Thread can by terminated using asynchronous or deferred cancelation. Asynchronous cancellation stops a thread immediately, even if it is in the middle of performing an update. Deferred cancellation informs a thread that it should terminate but allows the thread to terminate in a orderly fashion.
+- Unlike many other operating systems, the Linux system does not distinguish between process and threads; insted it refers to each as task.
+
+
+
+
+
+
+
