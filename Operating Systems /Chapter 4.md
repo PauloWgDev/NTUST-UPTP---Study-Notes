@@ -77,8 +77,8 @@ One variation still multiplexes many user threads to a smaller or equeal number 
 A thread library provides the programmer with an API for creating and managing threads.
 
 There are two approaches for implementing a thread library:
-- First approach is to provide a library entirely in user space with no kernel support.
-- Second approach is to implement a kernle-level library supported directly by the operating system.
+- First approach is to provide a library entirely in user space with **no kernel support**.
+- Second approach is to **implement a kernle-level library** supported directly by the operating system.
 
 Three main Librarires are use today: 
 - **POSIX Pthreads**: may be provided as user-level or kernel-level library
@@ -86,7 +86,39 @@ Three main Librarires are use today:
 - **Java**: because in most instances the JVM is running on top of a host operating system, the Java thread API is generally implemented using a thread library available on the host system.
 
 **Two general Strategies for creating Threads:**
-- **Asynchronous threading: ** Once the parent creates a child thread, the parent resumes its execution, so te parent and child execute concurrently and independently of one another.
-- **Synchronous threading: ** the parent thread creates one or more children and must wait for all of its children to terminate before it resumes.
+- **Asynchronous threading**: Once the parent creates a child thread, the parent resumes its execution, so te parent and child execute concurrently and independently of one another.
+- **Synchronous threading**: the parent thread creates one or more children and must wait for all of its children to terminate before it resumes.
 
-- 
+### Pthread
+
+```c
+#include <pthread.h>
+#include <stdio.h>
+
+#include<stdlib.h>
+
+int sum;
+void *runner(void *param); // thread call this function
+int main()
+{
+	pthread_t tid; // thread indentifier
+	pthread_attr_t attr; // set of thread attributes
+
+	// set the default attributes of the thread
+	pthread_attr_init(&attr); 
+
+	// create the thread
+	pthread_create(&tid, &attr, runner, argv[1]);
+
+	//wait for the thread to exit
+	pthread_join(tid, NULL);
+}
+
+void *runner(void *param)
+{
+	// logic happens here
+
+	pthread_exit(0);
+}
+
+```
