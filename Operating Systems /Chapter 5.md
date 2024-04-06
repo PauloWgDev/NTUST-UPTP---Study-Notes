@@ -1,4 +1,4 @@
-![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/e0b556e8-37af-494e-81cf-12635bcc9c91)# CPU Scheduling
+# CPU Scheduling
 
 On modern operating systems it is kernel-level threads (not processes) that are in fact bing scheduled by the operating system. However, the terms "process scheduling" and "thread scheduling" are often interchangeably.
 
