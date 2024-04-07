@@ -217,7 +217,16 @@ If multiple CPUs are available, **load sharing**, where multiple threads may run
 
 ### Approaches to Multiple-Processor Scheduling
 
+One approach to CPU scheduling in a multiprocessor system has all scheduling decisions, handled by a single processor (the master server). The other processors execute only user code. This **asymmetric multiprocessing** is simple because only one core accesses the system data structures, reducing the need fo data sharing. The downfall of this approach is that the master server becomes a potential bottleneck.
 
+The standard approach for supporting multiprocessor is **Symmetric multiprocessing (SMP)**, where each processor is self-scheduling.
+This provides two possible strategies:
+1. All threads may be in common ready queue.
+2. Each processor may have its own private queue of threads.
+
+The first option must ensure that two separate processors do not choose to schedule the same thread and that threads are not lost from the queue.
+
+The second option permits each processor to schedule threads from its private run queue and threrefore does not suffer from the possbile performance problems associated with a shared run queue. For this reason it is the most common approach.
 
 
 
