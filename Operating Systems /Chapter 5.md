@@ -205,6 +205,19 @@ To decide which kernel-level thread to schedule onto a CPU, the kernel uses syst
 
 ## Multi-Processor Scheduling
 
+If multiple CPUs are available, **load sharing**, where multiple threads may run in parallel, becomes possible, however shceduling issues become correspondingly more complex.
+
+*multiprocessors* apply to the following system architectures:
+
+- Multicore CPUs
+- Multithreaded cores
+- NUMA systems
+- Heterogenous multiprocessing
+
+
+### Approaches to Multiple-Processor Scheduling
+
+
 
 
 
