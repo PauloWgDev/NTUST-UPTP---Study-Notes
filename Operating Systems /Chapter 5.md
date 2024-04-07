@@ -314,9 +314,103 @@ The conflicphase of dispatch latency has two components:
 1. Preemption of any process running in the kernel
 2. Release by low-priority processes of resources needed by a high-priority process.
 
+### Priority-Based Scheduling
+
+The most important feature of a real-time operating system is to reapons immediately to areal itme process as soon as that proces requres the CCPU. As a result, the scheduler for a real time operating systemmsut support a priority based algorithms with preemption.
+
+Providing a preemptive, priority based scheduler only guarantees soft real time funcitonality. 
+
+Before we proceed with the detail of the individual schedulers, we must define certain characteristics of the processes that are to be scheduled.
+First, the processes are considered periodic. That is, they require the CPU at constant intervals (periods). Once a periodic process has acquired the CPU, it has a fixed processing time t, a deadline d and a period p. the relationship of these characteristics is: 
+0 <= t <= d <= p
+
+The rate of a periodic task is 1/p.
+
+Then, using a technique known as admission-control algorithm, the scheduler does one of two thigns.  It eaither admits the process, guaranteeing that the process will complete on time, or rejects the request as impossible if it cannot guarantee that the task will be services by its deadline.
 
 
+### Rate=Monotonic Scheduling
+
+The rate-monotonic scheduling algorithm schedules periodic tasks using a static priority policy with preemption. if a lower-priority process is runing and a higher priority proces becomes available to run, it will preempt the lower-priority process.
 
 
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/d47627e2-28cf-4824-98af-b130de6435e3)
 
 
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/eab29d43-7a4d-420e-9a0e-eb7a2ca9b1d3)
+
+### Earlies-Deadline-First Scheduling
+
+Earliest-deadline-first (EDF) scheduling assigns priorities dynamically according to deadline.
+
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/852d825e-989f-4048-824f-64bde0e7fe89)
+
+### Proportional Share Scheduling
+
+Proportional share schedulers operate by allocating T shares among all applications. An application can receieve N shares of time, thus ensuring that the application will have N/T of the total processor time.
+
+Proportional share schedulers msut work in conjuction with an admission-control policy to guarantee that an application receives its allocated shares of time. An admission control policy will admit a client requesting a particular number of shares only if sufficient shares are available.
+
+## Algorithms Evaluation
+
+Criteria for selectiong an alogorithm are often defined in terms of CPU utilization, response time or throughput. To select an alorithm, we must first define the relative importance of these elements.
+
+
+### Deterministic Modeling
+
+One major class of evaluation methods is analytic evaluation. Analytic evaluation uses the given algorithms and the systems workload to produce a formula or number to evaluate the performance of the algorithm for that workload.
+
+Deterministic modeling is one type of analytic evaluation. This method takes a particular predetermined workload and defines the performance of each algorithm for that workload.
+
+
+### Queueing Models
+
+On many systems, the processes that are run vary form day to day, so there is no static set of prcesses to use for deterministic modeling.
+
+The computer system is described as a network of servers. Each server has a queue of waiting processes. The CPU is a server with its ready queue, as is the I/O system with its device queues. Knowing arrival rates and services rates, we can compute utilization, average queue length, average wait time, and so on. 
+This area of study is called queueing network analysis.
+
+We expect taht during the time W that a aprocess waits, λ × W new processes will arrive in the queue. If the syste is in steady state, then the number of processes leaving the queue must be equal to the number of proceses that arrive. 
+
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/8397554b-548f-432b-82f4-468d2e001f04)
+
+
+This equation is known as "Little's formula" and it is particularly useful because it is valid for any scheduling alogrithm and arrival distribution.
+n could be number of customers for example
+
+### Simulations
+
+To get a more accurate evaluation of scheduling algorithms, we can use simulations. Running simulations involves programming a model of the computer
+system
+
+The data to drive the simulation can be generated in several ways. The most
+common method uses a random-number generator that is programmed to
+generate processes, CPU burst times, arrivals, departures, and so on, according
+to probability distributions
+
+A distribution-driven simulation may be inaccurate. To correct this problem, we can use trace files. We create a trace by monitoring the real systesm and recording the sequence of actual events. We then use this sequence to drive the simulations.
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/db3c5942-6021-4aa1-982f-217794101d27)
+
+### Implementation 
+
+Even a simulation is of limited accuracy. The only completely accurate way
+to evaluate a scheduling algorithm is to code it up, put it in the operating
+system, and see how it works. This approach puts the actual algorithm in the
+real system for evaluation under real operating conditions.
+This method is not without expense. The expense is incurred in coding the
+algorithm and modifying the operating system to support it.
+There is also cost in testing the changes, usually in
+virtual machines rather than on dedicated hardware. Regression testing confirms that the changes haven’t made anything worse, and haven’t caused new
+bugs or caused old bugs to be recreated
+Another difficulty is that the environment in which the algorithm is used
+will change
+
+## Summary
+
+- CPU scheduling is the task of selecting a waiting process from the ready
+queue and allocating the CPU to it. The CPU is allocated to the selected
+process by the dispatcher.
+- 
