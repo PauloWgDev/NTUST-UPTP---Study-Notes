@@ -228,9 +228,25 @@ The first option must ensure that two separate processors do not choose to sched
 
 The second option permits each processor to schedule threads from its private run queue and threrefore does not suffer from the possbile performance problems associated with a shared run queue. For this reason it is the most common approach.
 
+### Multicore Processors
+
+Multiple computing cores on the same phusical chip, resulting in a multicore processor.
+
+SMP systems that use multicore processors are faster and consume less power than systems in which each CPU has its own physical chip.
+
+Multicore processors may complicate scheduling issues.
+When a processor accesses memory, it spends a significan tammount of time waiting for the data to become available. This situation, known as memory stall, occurs primarily because modern processors operate at much faster speeds than memory.
+
+To remedy this situation, many recent hardware designs have implemented multithreaded processing cores in which two or more hardware threads are assigned to each core. That way, if one hardware thread stalls while waiting for memory, the core can switch to another thread.
+This technique is known as chip multithreading (CMT).
 
 
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/7f31bb86-af5f-4140-be63-bc4c801b953b)
 
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/01427f48-775b-43a9-bd21-daa689f26053)
 
+In general, there are two ways to multithread a processing core: **coarse-grained** and **fine-grained** multithreading. With coarse-threading multithreading, a thread executes on a core until a long-latency event such as a memory stall occurs. Because of the delay caused by the long-latency event, the core must switch to another thread to begin execution. However, the cost of switching between threads is high, since the instruction pipeline must be flushed before the other thread van begin execution.
+
+Fine-grained (or interleaved) multithreading switches between threads at a much finer level of granularity. Tipically at the boudary of an instruction cycle. However, the architectural design of fined-grained systems includes logic for thread switching. As a result, the cost of switching between threads is small.
 
 
