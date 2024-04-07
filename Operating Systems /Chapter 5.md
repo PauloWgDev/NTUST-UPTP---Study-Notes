@@ -249,4 +249,74 @@ In general, there are two ways to multithread a processing core: **coarse-graine
 
 Fine-grained (or interleaved) multithreading switches between threads at a much finer level of granularity. Tipically at the boudary of an instruction cycle. However, the architectural design of fined-grained systems includes logic for thread switching. As a result, the cost of switching between threads is small.
 
+The resources of the physical core (such as cache and pipelines) must be shared among its hardware threads, and therefore a processing core can only execute one hardware thread at a time.
+
+Multicore processor require two different levels of scheduling:
+
+- One one level are the scheduling decisions that must be made by the operating system as it chooses which software thread to run on each hardware thread.
+- A second LEvel of scheduling specifies how each core decides which hardware thread to run.
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/52c70e3b-17ca-4fc8-a11a-52e5b662f57f)
+
+
+### Load Balancing
+
+It is important to note that load balancing is typically necessary only ob systems where each processor has its own private ready quue of eligible threads to execute. On systems with a common run queue, load balancing is unnecessary, because once a processor becomes idle, it immediately extracts a runnable thread from the common ready queue.
+
+THere are tow general aprproaches to load balancing:
+- **Push Migration**: a specific task periodically checks the lead on each processor and if it finds an imbalance, evely distributes the load by moving (pushing) threads from overloaded to less busy processors.
+- **Pull Migration**: occurs when a n idle processor pulls a waiting task from a busy processor.
+
+### PRocessor Affinity
+
+The data most recently accessed by the thread populate the cache for the processor. As a result, successive memory accesses by the thread are often satisgied in cache memory (known as warm cache). Now, if the trhead migrates to another processor (for load balancing for example). The contents of cache memory must be invalidated for the first processor and repopulated for the second, this process has a very high cost, so most operating system with SMP try to avoid it and instead atttempt to keep a thread running on the same processor and take advantage of a warm cache. This is known as processor afinit (that is, a process has an affinity for the processor on which it is currently running).
+
+Processor affinity takes several forms:
+
+- Soft Affinity: When an operating system has a policy of attempting to keep a process running on the same processor but not guaranteeing that it will do so.
+- Hard Affinity: allowing a process to specify a subset of processor  on which it can run.
+
+### Heterogenous Multiprocessing
+
+Some systems are now designed using cores that run the same instruction set, yet vary in terms of their clock speed and power management, including the ability to adjust the power consumption of a core to the point of idling the core. Such systems are known as heterogenous multiprocessing (HMP).
+
+
+## Real Time CPU scheduling
+
+We can distinguish between soft real-time systems and hard real-time systems:
+
+- SOft real-time systems: provide no guarantee as to when a critical real-time process will be scheduled. They guarantee only that the process will be given proference over noncritical process.
+- Hard real-time systems have stricter requirements. A task must be services by its deadline; service after the deadline is the same as no service at all.
+
+### Minimizing Latency
+
+We refer to **event latency** as the amount of time that elapses from when an event occurs to when it is serviced.
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/52d1654a-09d3-4d01-9034-9481e5322e28)
+
+Two typea of latency affect the performance of real-time systems:
+1. Interrupt latency
+2. Dispatch latency
+
+Interrupt latency refers to the perdio of time from the arrival of an interrupt at the CPU to the start of the routine that services the interrupt.
+
+The amount of time required for the scheduling distpatcher to stop one process and start another is known as dispatch latency.
+
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/d3f20986-8a09-4f11-9310-327b571a633b)
+
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/7de25b05-ee49-415b-a76f-85424631372e)
+
+
+The most effective technique for keeping dispatch latency low is to provide preemptive kernels. For hard real-time systems, dispatch latency is typically measured in several microseconds.
+The conflicphase of dispatch latency has two components: 
+1. Preemption of any process running in the kernel
+2. Release by low-priority processes of resources needed by a high-priority process.
+
+
+
+
+
+
 
