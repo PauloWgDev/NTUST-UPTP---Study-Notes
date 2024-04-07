@@ -192,3 +192,23 @@ In general, a multilevel feedback queue scheduler is defined by the following pa
 The definition of a multilevel feedback queue scheduler makes it the most
 general CPU-scheduling algorithm
 
+
+## Thread Scheduling
+
+On most modern operating systems it is kernel-level threads (not processes) that are being scheduled by the operating system. To run on a CPU, user level threads must ultimately be mapped to an associated kernel-level thread.
+
+### Contention Scope
+
+On systems implementing the many-to-one or many-to-many models, the thread library schedules user-level threads to run on an available LWP (light weight process). This scheme is known as process contention scope (PCS). 
+
+To decide which kernel-level thread to schedule onto a CPU, the kernel uses system-contention scope (SCS).
+
+## Multi-Processor Scheduling
+
+
+
+
+
+
+
+
