@@ -121,9 +121,91 @@ Even a good DBMS will perform poorly with a badly designed database.
 ![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/60118419-2540-4ef2-96d6-3a60d078b9e7)
 
 With the improved structure, you can use simple commands in a standard data manipulation language to do the following:
-- Produce an alphabetical listing of employees by last name: 
-  SELECT * FROM EMPLOYEE ORDER BY EMPLOYEE_LNAME;
+- Produce an alphabetical listing of employees by last name:
+```SQL
+SELECT * FROM EMPLOYEE ORDER BY EMPLOYEE_LNAME;
+```
 - Determine how many employees are certified in Basic Database Manipulation:
-  SELECT COUNT(*)
-  FROM SKILL JOIN CERTIFIED ON SKILL.SKILL_ID = CERTIFIED.SKILL_ID 
-  WHERE SKILL_NAME = 'Basic Database Manipulation';
+```SQL
+SELECT COUNT(*)
+FROM SKILL JOIN CERTIFIED ON SKILL.SKILL_ID = CERTIFIED.SKILL_ID 
+WHERE SKILL_NAME = 'Basic Database Manipulation';
+```
+
+# Evolution of File System Data Processing
+
+### Manual File Systems
+Historically, data was kept in paper-and-pencil manual systems organized to facilitate the 
+expected use of the data. Typically, this was accomplished through a system of file folders 
+and filing cabinets
+
+### Computerized File Systems
+Initially, the computer files within the file system were similar to the manual files
+
+When business users wanted data from the computerized file, the DP specialist had to 
+create programs to retrieve the data from the file(s), manipulate it in whatever manner the 
+user had requested, and present it as a printed report.
+
+As more and more computerized files were developed, the problems with this type of file 
+system became apparent. The issues centered around having many data files that contained 
+related—often overlapping—data with no means of controlling or managing the data consistently across all of the files.
+
+### File System Redux: Modern End-User Productivity Tools
+
+The users’ desire for direct, hands-on access to data helped to fuel the adoption of personal 
+computers for business use.
+A common misuse of spreadsheets is as a substitute for a database.
+
+### Problems with File System Data Processing
+
+any change to a file structure, no matter how minor, forces modifications in all of 
+the programs that use the data in that file. Modifications are likely to produce errors (bugs),
+Those limitations, in turn, lead to problems of structural and data dependence. Also Data redundancy.
+Also a file system exhibits structural dependence, maning that access to a file is dependent of its structure. Conversely, structural independence exists when you can change the file structure without affecting the application’s ability to access the data.
+Data anomalies, Ideally, a field value change should be 
+made in only a single place. Data redundancy, however, fosters an abnormal condition by forcing field value changes in many different locations. A data anomaly develops when not all of the required changes in the redundant data are made successfully.
+
+# Database Systems
+
+The problems inherent in file systems make using a database system very desirable
+
+the database system consists of logically related data stored in a single logical data repository
+
+The database’s DBMS, provides numerous advantages over file system management, by making it possible to eliminate most of the file system’s data inconsistency, data anomaly, data dependence, and structural dependence problems.
+
+The DBMS may even be referred to as the database system’s heart. However, just as it takes 
+more than a heart to make a human being function, it takes more than a DBMS to make a 
+database system function.
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/f0ab927f-18f0-4cd0-9318-e24709f0c578)
+
+## DBMS Functions
+
+- Data dictionary management
+- Data storage management
+- Data transformation and presentation
+- Security management.
+- Multiuser access control
+- Backup and recovery management
+- Data integrity management
+- Database access languages and application programming interfaces. (query langugage)
+- Database communication interfaces. (accepts end-user requests, for example, might provide 
+access to the database via the Internet through the use of web browser or  might support application programming interfaces (API) to communicate with various programing languages)
+
+## DB Challenges 
+
+- Increased costs: Database systems require sophisticated hardware and software and highly skilled personnel.
+- Management Complexity.
+- Maintaining currency.
+- Vendor dependence.
+- Frequent upgrade/replacement cycles.
+
+# DB career Oportunities
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/7b1b824d-ac96-4a57-98eb-31f9e7a577d0)
+
+// to do: check out the problems of chapter 1
+
+
+
+
