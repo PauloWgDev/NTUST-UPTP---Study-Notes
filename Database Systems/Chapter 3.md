@@ -78,4 +78,21 @@ user and designer
 (hd)
 
 
+## Dr. Codd's 12 Relational DB rules
+
+- Information: All information in a relational database must be logically rpresented as a column value in rows within tables
+- Guaranteed Access: Every value in a table is guaranteed to be accessible thourgh a combination of table name, primary key value and column name.
+- Systematic treatement of nulls: Nulls must be represented and treated in a systematic way, independent of data type.
+- Dynamic online catalog based on the relational model: The metadata must be stored and managed as ordinary data.
+- Comprehensive data sublanguage: The relational db may support many languages, however, it must support one well-defined, declaration language as well as data definition, view definition, data manipulation, integrity constrains, authorization, and transaction management.
+- View Updating: any view that is theoretically updatable must be updatable throuth the system.
+- High-level insert, update and delete: The database must support set-level inserts, updates, and deletes.
+- Phisical data independence: Application programs and ad hoc facilities are logically unaffected when physical access methods or storage structures are changed
+- Logical data independece: Application programs and ad hoc facilities are logically unaffected when changes are made to the tables structures that preserve the original table values.
+- Integrity independece: All relational integrity constraints must be definable in the relational language and stored in the system catalog, not at the applicaiton level.
+- Distribution Independece: The end users and application programs are unaware of and unnafected by the data location.
+- Nonsubversion: If the system supports low-level access to the data, users must not be allowed to bypass the integrity rules of the database.
+- Rule Zero:  All preceding rules are based on the notion that to be considered relational, a database must use its relational facilities exclusively for management.
+
+
 
