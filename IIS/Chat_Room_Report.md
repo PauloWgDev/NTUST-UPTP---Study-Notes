@@ -95,14 +95,14 @@ socket binded to 1234
 ### Clients connects to Server
 
 
-output (server):
+Server output indicates connections established by clients, displaying their respective IP addresses and ports.
 
 ```
 Got connection from  ('127.0.0.1', 9585)
 Got connection from  ('127.0.0.1', 9893)
 ```
 
-output (clients):
+When clients connect to the server, they receive a welcome message indicating the encryption type being used.
 
 ```
 [SERVER]: Thank you for connecting to the Chat Room. Encryption Type 0 
@@ -110,13 +110,13 @@ output (clients):
 
 ### Client send Message using encryption 3-DES
 
-client 1 writes 'ABCDABCDABCDABCD' on console:
+client 1 inputs 'ABCDABCDABCDABCD' on console:
 ```
 ABCDABCDABCDABCD
 ```
 
 
-output (server)
+The server shows the decryption process:
 ```
 [3-DES] decrypted phase 1:  1EEE233E4CCB6C75
 [3-DES] decrypted phase 2:  B9090C374D5DA61E
@@ -124,7 +124,7 @@ output (server)
 [('127.0.0.1', 10268)] Decrypted Message:  ABCDABCDABCDABCD
 ```
 
-output (client 2)
+Client 2 recieves the following message:
 ```
 [Anonymous User]:  ABCDABCDABCDABCD
 ```
