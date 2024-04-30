@@ -68,3 +68,78 @@ def triple_DES_encrypt(message, _key, _key2):
 On the server side, the application employs multithreading to handle multiple client connections simultaneously. Each client connection is managed by a separate thread on the server.
 
 Meanwhile, and on the client side, multithreading is utilized to handle the reception of messages one thread and the sending of messages on another thread. This approach enables continuous and uninterrupted interaction between the client and server without blocking operations.
+
+
+# Outputs:
+
+### Server Set Up
+
+The first output you get when running the Server.py script is the shown output, here you can select what kind of DES algorithm you want to use. If you enter 0, you will use the basic DES algorithm, if you enter 1 you will use the 2-DES algorithms and if you enter 2 you will use the 3-DES algorithm. And if you enter anything else the program will handle that by giving printing that the inserted value is not valid and will proceed to use the DES for encryption.
+
+
+output:
+```
+DES Encription> & C:/Users/paulo/AppData/Local/Microsoft/WindowsApps/python3.11.exe "d:/UPTP-NTUST Books/Security/Homework 2 - Chat Console with DES Encription/Server.py"
+
+
+DES: Thank for using DES encryption services :)
+
+
+socket binded to 1234
+[HINT] 0 for DES
+[HINT] 1 for 2-DES
+[HINT] 2 for 3-DES with two keys
+[SETUP] Select Encryption to use:
+```
+
+### Clients connects to Server
+
+
+output (server):
+
+```
+Got connection from  ('127.0.0.1', 9585)
+Got connection from  ('127.0.0.1', 9893)
+```
+
+output (clients):
+
+```
+[SERVER]: Thank you for connecting to the Chat Room. Encryption Type 0 
+```
+
+### Client send Message using encryption 3-DES
+
+client 1 writes 'ABCDABCDABCDABCD' on console:
+```
+ABCDABCDABCDABCD
+```
+
+
+output (server)
+```
+[3-DES] decrypted phase 1:  1EEE233E4CCB6C75
+[3-DES] decrypted phase 2:  B9090C374D5DA61E
+[3-DES] decrypted phase 3:  ABCDABCDABCDABCD
+[('127.0.0.1', 10268)] Decrypted Message:  ABCDABCDABCDABCD
+```
+
+output (client 2)
+```
+[Anonymous User]:  ABCDABCDABCDABCD
+```
+
+### Client Disconnects from the chat room
+
+To disconnect from the server, clients have to write 6969
+```
+6969
+```
+
+server output:
+```
+Terminating chat with client('127.0.0.1', 10283)...
+```
+
+
+
