@@ -12,8 +12,8 @@
     - Tracking user progress and statistics.
 2. **Flashcard Management:**
     
-    - ==CRUD operations for flashcards.==
-    - ==Organize flashcards into Groups.==
+    - CRUD operations for flashcards.
+    - Organize flashcards into Groups.
     - Tagging for flashcards.
 3. **Study Sessions:**
     - Start a study session with selected flashcards or categories.
