@@ -23,3 +23,6 @@ Once this other person has encrypted the message using the key you sent him, not
 
 
 ![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/b6353e9e-0ed9-41ae-8b5c-b4139948fd55)
+
+
+## Knapsack Cryptosystem
