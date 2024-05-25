@@ -171,6 +171,8 @@ Public Keys: (e, n)
 Private Key: d 
 
 
+**In RSA, p and q must be at least 512 bits; n must be at least 1024 bits.**
+
 Let us learn the mechanism behind the RSA algorithm : >> Generating Public Key: 
 
 ```
