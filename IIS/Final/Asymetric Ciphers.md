@@ -162,6 +162,50 @@ Decrypted Message:  [1, 0, 0, 1, 1]
 
 ### Concepts
 
+You have a public key and a private key, you usually used the private key to sign something and verify it with the public key.
+
+Public Keys: (e, n)
+    e usually is 65537
+    n = p*q where p and q are two random prime numbers
+
+Private Key: d 
+
+
+Let us learn the mechanism behind the RSA algorithm : >> Generating Public Key: 
+
+```
+Select two prime no's. Suppose P = 53 and Q = 59.
+Now First part of the Public key  : n = P*Q = 3127.
+ We also need a small exponent say e : 
+But e Must be 
+An integer.
+Not be a factor of Φ(n). 
+1 < e < Φ(n), 
+Let us now consider it to be equal to 3.
+    Our Public Key is made of n and e
+```
+Generating Private Key: 
+```
+We need to calculate Φ(n) :
+Such that Φ(n) = (P-1)(Q-1)     
+      so,  Φ(n) = 3016
+    Now calculate Private Key, d : 
+d = (k*Φ(n) + 1) / e for some integer k
+For k = 2, value of d is 2011.
+```
+
+Now we are ready with our – Public Key ( n = 3127 and e = 3) and Private Key(d = 2011) Now we will encrypt “HI”:
+```
+Convert letters to numbers : H  = 8 and I = 9
+    Thus Encrypted Data c = (89e)mod n 
+Thus our Encrypted Data comes out to be 1394
+Now we will decrypt 1394 : 
+    Decrypted Data = (cd)mod n
+Thus our Encrypted Data comes out to be 89
+8 = H and I = 9 i.e. "HI".
+
+```
+
 
 
 
