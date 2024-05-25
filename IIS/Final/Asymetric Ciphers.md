@@ -26,3 +26,101 @@ Once this other person has encrypted the message using the key you sent him, not
 
 
 ## Knapsack Cryptosystem
+
+
+### My Implementation of Knapsack Encryption
+
+#### Code:
+
+##### Generate Keys
+
+```python
+def generateKeys(size):
+    privateKey = generateSuperIncreasingList(size)
+
+    # Generate Modulus, m > sum(privateKey)
+    m = sum(privateKey) + random.randint(1, 100)
+
+    # Find a coprime of m 
+    r = 1
+    while True:
+        r = random.randint(2, m - 1)
+        if gcd(m, r) == 1:
+            break
+
+    publicKey = generate_public_key(privateKey, m, r)
+    
+    return privateKey, publicKey, m, r
+```
+
+##### Encrypt 
+
+```python
+def Encrypt(publicKey, message):
+    return knapsackSum(publicKey, message)
+```
+
+##### Decrypt
+
+```
+def Decrypt(privateKey, m, r, cipher):
+    # Calculate the modular inverse of r mod m
+    rInverse = modInverse(r, m)
+    # Multiply the cipher by the modular inverse of r, then take mod m
+    s = (cipher * rInverse) % m
+    print("s: ", s)
+    # Use the super-increasing sequence (private key) to decode the message
+    plain = inv_knapsackSum(s, privateKey)
+    return plain
+``` 
+
+#### Testing/Output
+
+##### Testing 
+
+```
+def test():
+
+    #Alice
+    alice_privateKey, alice_publicKey, m, r = generateKeys(5)
+    print("--- Alice ---") 
+    print("private key: ", alice_privateKey) 
+    print("Modulus: ", m) 
+    print("Modulus Relative Prime: ", r)
+    print("public key: ", alice_publicKey)  
+
+    #Bob
+    print("\n--- Bob ---") 
+    message = [1, 0, 0, 1, 1]
+    cipher = Encrypt(alice_publicKey, message)
+    print("Encryption Key: ", alice_publicKey)
+    print("Message: ", message)
+    print("Cipher text: ", cipher)
+
+    print("\n--- Alice ---")
+    print("Recieved Cipher message: ", cipher)
+    plain = Decrypt(alice_privateKey, m, r, cipher)
+    print("Decrypted Message: ", plain)
+```
+
+##### Output
+
+```
+--- Alice ---
+private key:  [13, 39, 117, 351, 1053]
+Modulus:  1638
+Modulus Relative Prime:  911
+public key:  [377, 1131, 117, 351, 1053]
+
+--- Bob ---
+Encryption Key:  [377, 1131, 117, 351, 1053]
+Message:  [1, 0, 0, 1, 1]
+Cipher text:  1781
+
+--- Alice ---
+Recieved Cipher message:  1781
+s:  1417
+Decrypted Message:  [1, 0, 0, 1, 1]
+
+```
+
