@@ -77,7 +77,7 @@ def Encrypt(publicKey, message):
 
 ##### Decrypt
 
-```
+```python
 def Decrypt(privateKey, m, r, cipher):
     # Calculate the modular inverse of r mod m
     rInverse = modInverse(r, m)
@@ -93,7 +93,7 @@ def Decrypt(privateKey, m, r, cipher):
 
 ##### Testing 
 
-```
+```python
 def test():
 
     #Alice
