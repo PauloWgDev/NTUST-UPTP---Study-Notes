@@ -46,12 +46,18 @@ Example of Super Increasing List: [5, 10, 20, 40]
 
 ##### Private Keys
 
+- A Super Increasing List: `privateKey`
+- A number greater than the sum of all items in `privateKey`: `m`
+- A relative prime of `m`: `r`
+
 ##### Public Key
 
-#### Functions
-##### Encrypt
+- A List calculated using the `privateKey`, `m` and `r`: `publicKey`
 
-##### Decrypt
+#### Functions
+
+Encrypt: Use the `publicKey` to encrypt the binary message.
+Decrypt: Use the `privateKey`, modulus `m`, and multiplier `r` to decrypt the ciphertext.
 
 
 ### My Implementation of Knapsack Encryption
