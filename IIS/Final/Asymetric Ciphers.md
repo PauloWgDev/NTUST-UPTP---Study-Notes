@@ -27,7 +27,9 @@ Once this other person has encrypted the message using the key you sent him, not
 
 ## Knapsack Cryptosystem
 
-### Concept
+### Concepts
+
+#### Super Increasing List 
 
 The knapsack uses the concept of Super Increasing Lists to encrypt and decrypt messages.
 A super Increasing list is a list in which each item on the list is greater than the sum of the previous numbers.
@@ -40,7 +42,16 @@ Example of Super Increasing List: [5, 10, 20, 40]
 
 10 > 5
 
+#### Keys
 
+##### Private Keys
+
+##### Public Key
+
+#### Functions
+##### Encrypt
+
+##### Decrypt
 
 
 ### My Implementation of Knapsack Encryption
