@@ -14,3 +14,5 @@ K<sub>public</sub>: public Key
 C = encrypt(K<sub>public</sub>, P)
 
 P = decrypt(K<sub>private</sub>, C)
+
+![image](https://github.com/PauloWgDev/NTUST-UPTP---Study-Notes/assets/133529935/b6353e9e-0ed9-41ae-8b5c-b4139948fd55)
