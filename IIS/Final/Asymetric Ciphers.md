@@ -34,9 +34,9 @@ A super Increasing list is a list in which each item on the list is greater than
 
 Example of Super Increasing List: [5, 10, 20, 40]
 
-40 >= (5 + 10 + 20)
-20 >= (5 + 10)
-10 >= 5
+40 > (5 + 10 + 20)
+20 > (5 + 10)
+10 > 5
 
 
 
