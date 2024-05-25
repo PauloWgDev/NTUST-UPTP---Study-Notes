@@ -208,6 +208,14 @@ Thus our Encrypted Data comes out to be 89
 
 ```
 
+### Approaches to Attack RSA:
+
+- Brute Force: trying all possible private keys.
+- Mathematical Attacks: all approaches equivalent in effor to factoring the product of two primes.
+- Chosen ciphertext attacks: This type of attack exploits properties of the RSA algorithm.
+- Timing Attacks: depend on the running time of the decryption algorithm.
+- Hardware fault-based attack: Involves inducing hardware faults in the processor that is generating digital signatures.
+
 
 
 
