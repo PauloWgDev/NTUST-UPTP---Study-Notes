@@ -56,8 +56,8 @@ Example of Super Increasing List: [5, 10, 20, 40]
 
 #### Functions
 
-Encrypt: Use the `publicKey` to encrypt the binary message.
-Decrypt: Use the `privateKey`, modulus `m`, and multiplier `r` to decrypt the ciphertext.
+- Encrypt: Use the `publicKey` to encrypt the binary message.
+- Decrypt: Use the `privateKey`, modulus `m`, and multiplier `r` to decrypt the ciphertext.
 
 
 ### My Implementation of Knapsack Encryption
