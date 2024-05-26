@@ -217,5 +217,13 @@ Thus our Encrypted Data comes out to be 89
 - Hardware fault-based attack: Involves inducing hardware faults in the processor that is generating digital signatures.
 
 
+## Rabin Cryptosystem
+
+### Encryption Algorithm
+
+The Rabin cryptosystem can be thought of as an RSA cryptosystem in which the value of e and d are fixed. 
+The encryption is C ≡ P<sup>2</sup>(mod n)
+and the
+decryption is P ≡ sqrt(C) mod n.
 
 
