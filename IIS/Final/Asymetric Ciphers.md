@@ -226,4 +226,6 @@ The encryption is C ≡ P<sup>2</sup>(mod n)
 and the
 decryption is P ≡ sqrt(C) mod n.
 
+The rabin cryptosystem is not deterministic, the decryptions gives you 4 posible plain texts.
+
 
